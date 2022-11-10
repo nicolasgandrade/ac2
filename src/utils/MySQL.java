@@ -10,7 +10,6 @@ import java.sql.Statement;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,10 +22,10 @@ public class MySQL {
     private Statement statement; //variável de manipulação do SQL
     private ResultSet resultSet;
     
-    private String servidor = "remotemysql";
-    private String nomeDoBanco = "G302hXJlCo";
-    private String usuario = "G302hXJlCo";
-    private String senha = "gd635GMaX9";
+    private String servidor = "172.17.0.2";
+    private String nomeDoBanco = "Ac2";
+    private String usuario = "root";
+    private String senha = "root";
     
     //Construtor    
     public MySQL(){
