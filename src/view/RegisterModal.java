@@ -4,17 +4,23 @@
  */
 package view;
 
+import controller.UserController;
+import javax.swing.JOptionPane;
+import model.User;
+
 /**
  *
  * @author nicolas
  */
 public class RegisterModal extends javax.swing.JFrame {
+    UserController controller;
 
     /**
      * Creates new form RegisterModal
      */
     public RegisterModal() {
         initComponents();
+        controller = new UserController();
     }
 
     /**
@@ -122,6 +128,11 @@ public class RegisterModal extends javax.swing.JFrame {
         btnRegistrar.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -158,9 +169,33 @@ public class RegisterModal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void clearFields() {
+        this.txtNome.setText("");
+        this.txtUsername.setText("");
+        this.txtPassword.setText("");
+    }
+    
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        User user = new User(
+                this.txtNome.getText(),
+                this.txtUsername.getText(),
+                new String(this.txtPassword.getPassword())
+        );
+        int status = this.controller.addUser(user);
+        
+        if (status == 1) {
+            JOptionPane.showMessageDialog(rootPane, "Usuário criado. Siga para o Login.");
+            this.clearFields();
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Falha ao criar um novo usuário.");
+            this.clearFields();
+        }
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
