@@ -6,5 +6,4 @@ public class Program {
         ViewSplashScreen splash = new ViewSplashScreen();
         splash.setVisible(true);
     }
-
 }
