@@ -10,6 +10,10 @@ public class Servico {
     private String fim;
     private float valor;
 
+    public Servico(){
+        
+    }
+    
     public Servico(String nome, String empresa, String descricao, String inicio, String fim, float valor) {
         this.nome = nome;
         this.empresa = empresa;
