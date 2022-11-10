@@ -1,8 +1,9 @@
 package view;
 
-public class viewSplashScreen extends javax.swing.JFrame {
+public class ViewSplashScreen extends javax.swing.JFrame {
+    Login login;
 
-    public viewSplashScreen() {
+    public ViewSplashScreen() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         new Thread() {
@@ -12,6 +13,13 @@ public class viewSplashScreen extends javax.swing.JFrame {
                         sleep(10);
                         jpbCarregamento.setValue(i);
                     } catch (InterruptedException ex) {
+                        System.out.println(ex);
+                    } finally {
+                        if (i == 100) {
+                            login = new Login();
+                            login.setVisible(true);
+                            dispose();
+                        }                        
                     }
                 }
 
@@ -26,8 +34,7 @@ public class viewSplashScreen extends javax.swing.JFrame {
         jpbCarregamento = new javax.swing.JProgressBar();
         jlFundo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1366, 768));
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpbCarregamento.setBackground(new java.awt.Color(0, 51, 102));
@@ -43,7 +50,7 @@ public class viewSplashScreen extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new viewSplashScreen().setVisible(true);
+                new ViewSplashScreen().setVisible(true);
             }
         });
     }
