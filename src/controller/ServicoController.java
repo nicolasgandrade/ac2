@@ -20,7 +20,7 @@ public class ServicoController {
                 + "'" + servico.getInicio()+ "',"
                 + "'" + servico.getFim() + "',"
                 + "'" + servico.getDescricao()+ "');";
-        this.conn.updateSQL(sql);
+        this.conn.insertSQL(sql);
     }
     
     public Servico buscaServico(String nome) throws SQLException {
@@ -54,7 +54,7 @@ public class ServicoController {
     }
     
     public void deleteServico(String nome) {
-        this.conn.insertSQL("DELETE FROM Prestador_de_Servico WHERE " + "nome LIKE '%" + nome + "%';");                
+        this.conn.updateSQL("DELETE FROM Prestador_de_Servico WHERE " + "nome LIKE '%" + nome + "%';");                
     }
 
 }
