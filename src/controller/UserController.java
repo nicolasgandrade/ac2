@@ -29,14 +29,6 @@ public class UserController {
         
         return this.conn.getResultSet();
         
-//        User user = new User();
-//        while (this.conn.getResultSet().next()) {
-//            user.setName(this.conn.getResultSet().getString("nome_usuario"));
-//            user.setUsername(this.conn.getResultSet().getString("login_usuario"));
-//            user.setPassword(this.conn.getResultSet().getString("senha_usuario"));
-//        }
-//        
-//        return user;
     }
 
 }
