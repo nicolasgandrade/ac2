@@ -11,7 +11,7 @@ public class ServicoController {
         this.conn.conectaBanco();
     }
     
-    public void addServico(Servico servico) {
+    public int addServico(Servico servico) {
         String sql = "INSERT INTO Prestador_de_Servico VALUES("
                 + "null,"
                 + "'" + servico.getNome()+ "',"
@@ -20,7 +20,7 @@ public class ServicoController {
                 + "'" + servico.getInicio()+ "',"
                 + "'" + servico.getFim() + "',"
                 + "'" + servico.getDescricao()+ "');";
-        this.conn.insertSQL(sql);
+        return this.conn.insertSQL(sql);
     }
     
     public Servico buscaServico(String nome) throws SQLException {
@@ -41,7 +41,7 @@ public class ServicoController {
         return servico;
     }
     
-    public void updateServico(Servico servico, String nome) {
+    public boolean updateServico(Servico servico, String nome) {
         String sql = "UPDATE Prestador_de_Servico SET "
                 + "nome = '" + servico.getNome()+ "',"
                 + "valor_hora = '" + servico.getValor()+ "',"
@@ -50,11 +50,14 @@ public class ServicoController {
                 + "data_fim = '" + servico.getFim()+ "',"
                 + "descricao_servico = '" + servico.getDescricao()+ "'"
                 + " WHERE " + "nome LIKE '%" + nome + "%';";
-        this.conn.updateSQL(sql);
+        return this.conn.updateSQL(sql);
     }
     
-    public void deleteServico(String nome) {
-        this.conn.updateSQL("DELETE FROM Prestador_de_Servico WHERE " + "nome LIKE '%" + nome + "%';");                
+    public boolean deleteServico(String nome) {
+        return this.conn.updateSQL("DELETE FROM Prestador_de_Servico WHERE " + "nome LIKE '%" + nome + "%';");                
     }
-
+    
+    public void fechaServico(){
+        this.conn.fechaBanco();
+    }
 }

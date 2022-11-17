@@ -1,9 +1,18 @@
 package view;
 
+import controller.ServicoController;
+import javax.swing.JOptionPane;
+import model.Servico;
+
 public class TelaServico extends javax.swing.JFrame {
 
+    ServicoController controller;
+    Servico servico;
+    
     public TelaServico() {
         initComponents();
+        
+        controller = new ServicoController();
     }
 
     @SuppressWarnings("unchecked")
@@ -75,11 +84,21 @@ public class TelaServico extends javax.swing.JFrame {
         btnCadastrar.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
         btnLimpar.setBackground(new java.awt.Color(204, 204, 0));
         btnLimpar.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         btnLimpar.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -164,9 +183,19 @@ public class TelaServico extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jButton3.setText("Consultar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jButton4.setText("Limpar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel10.setText("Nome da Empresa:");
@@ -191,11 +220,21 @@ public class TelaServico extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Atualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(204, 0, 0));
         jButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Deletar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -266,11 +305,12 @@ public class TelaServico extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFim2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
-                    .addComponent(txtInicio2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtFim2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtInicio2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel11)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -294,6 +334,112 @@ public class TelaServico extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        
+        servico = new Servico();
+        servico.setNome(txtNome.getText());
+        servico.setValor(Float.parseFloat(txtValor.getText()));
+        servico.setEmpresa(txtEmpresa.getText());
+        servico.setInicio(txtInicio.getText());
+        servico.setFim(txtFim.getText());
+        servico.setDescricao(txtDescricao.getText());
+        
+        try {
+            int status = controller.addServico(servico);
+            
+            if (status == 1) {
+                JOptionPane.showMessageDialog(null, "Serviço cadastrado com sucesso.", "Sucesso.", JOptionPane.DEFAULT_OPTION);
+            } else {
+                JOptionPane.showMessageDialog(null, "Houve algum problema no cadastro do Serviço.", "Erro no cadastro." , JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Houve um erro no cadastro do Serviço.", "Erro no cadastro.", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            controller.fechaServico();
+        }
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        limpaCadastro();
+    }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+        servico = new Servico();
+        
+        try {
+            controller.buscaServico(txtNome2.getText());
+            
+            if (servico.getNome().equals("")) {
+                JOptionPane.showMessageDialog(null, "Nome não encontrado.", "Erro na busca", JOptionPane.ERROR_MESSAGE);
+            }else{
+                txtValor2.setText(String.valueOf(servico.getValor()));
+                txtEmpresa2.setText(servico.getEmpresa());
+                txtInicio2.setText(servico.getInicio());
+                txtFim2.setText(servico.getFim());
+                txtDescricao2.setText(servico.getDescricao());
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Houve um erro na busca.", "Erro na busca", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            controller.fechaServico();
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        limpaConsultar();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            boolean status = controller.updateServico(servico, txtNome2.getText());
+            
+            if (status) {
+                JOptionPane.showMessageDialog(null, "Atualização realizada com sucesso.", "Sucesso.", JOptionPane.DEFAULT_OPTION);
+            } else{
+                JOptionPane.showMessageDialog(null, "Houve um erro na atualização.", "Erro na atualizaçã.", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Houve um erro na atualização.", "Erro na atualização.", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            controller.fechaServico();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            boolean status = controller.deleteServico(txtNome2.getText());
+            
+            if (status) {
+                JOptionPane.showMessageDialog(null, "Serviço apagado com sucesso!", "Sucesso.", JOptionPane.DEFAULT_OPTION);
+            } else{
+                JOptionPane.showMessageDialog(null, "Houve um erro ao apagar.", "Erro ao apagar.", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Houve um erro ao apagar o registro.", "Erro ao apagar.", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            controller.fechaServico();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    public void limpaCadastro(){
+        txtNome.setText("");
+        txtValor.setText("");
+        txtEmpresa.setText("");
+        txtInicio.setText("");
+        txtFim.setText("");
+        txtDescricao.setText("");
+    }
+    
+    public void limpaConsultar(){
+        txtNome2.setText("");
+        txtValor2.setText("");
+        txtEmpresa2.setText("");
+        txtInicio2.setText("");
+        txtFim2.setText("");
+        txtDescricao2.setText("");
+    }
+    
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
