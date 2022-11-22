@@ -22,10 +22,10 @@ public class MySQL {
     private Statement statement; //variável de manipulação do SQL
     private ResultSet resultSet;
     
-    private String servidor = "172.17.0.2";
+    private String servidor = "127.0.0.1";
     private String nomeDoBanco = "Ac2";
     private String usuario = "root";
-    private String senha = "root";
+    private String senha = "Sun4t#0r";
     
     //Construtor    
     public MySQL(){

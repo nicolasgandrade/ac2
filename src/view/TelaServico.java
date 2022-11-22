@@ -1,18 +1,18 @@
 package view;
 
-import controller.ServicoController;
 import javax.swing.JOptionPane;
 import model.Servico;
+import utils.MySQL;
 
 public class TelaServico extends javax.swing.JFrame {
 
-    ServicoController controller;
+    MySQL mySQLcon;
     Servico servico;
     
     public TelaServico() {
         initComponents();
         
-        controller = new ServicoController();
+        mySQLcon = new MySQL();
     }
 
     @SuppressWarnings("unchecked")
@@ -39,8 +39,8 @@ public class TelaServico extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtNome2 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnConsultar = new javax.swing.JButton();
+        btnLimpar2 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -53,8 +53,8 @@ public class TelaServico extends javax.swing.JFrame {
         txtDescricao2 = new javax.swing.JTextArea();
         txtInicio2 = new javax.swing.JTextField();
         txtFim2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
+        btnDeletar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -181,19 +181,19 @@ public class TelaServico extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel1.setText("Nome:");
 
-        jButton3.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jButton3.setText("Consultar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnConsultar.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnConsultar.setText("Consultar");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnConsultarActionPerformed(evt);
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jButton4.setText("Limpar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpar2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnLimpar2.setText("Limpar");
+        btnLimpar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnLimpar2ActionPerformed(evt);
             }
         });
 
@@ -216,23 +216,23 @@ public class TelaServico extends javax.swing.JFrame {
         txtDescricao2.setRows(5);
         jScrollPane2.setViewportView(txtDescricao2);
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 0));
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Atualizar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAtualizar.setBackground(new java.awt.Color(0, 204, 0));
+        btnAtualizar.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnAtualizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAtualizar.setText("Atualizar");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAtualizarActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(204, 0, 0));
-        jButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Deletar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnDeletar.setBackground(new java.awt.Color(204, 0, 0));
+        btnDeletar.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        btnDeletar.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeletar.setText("Deletar");
+        btnDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnDeletarActionPerformed(evt);
             }
         });
 
@@ -253,9 +253,9 @@ public class TelaServico extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnLimpar2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addGap(18, 18, 18)
@@ -273,9 +273,9 @@ public class TelaServico extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel11))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addComponent(txtFim2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(61, Short.MAX_VALUE))
@@ -287,8 +287,8 @@ public class TelaServico extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtNome2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(btnConsultar)
+                    .addComponent(btnLimpar2))
                 .addGap(34, 34, 34)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
@@ -313,8 +313,8 @@ public class TelaServico extends javax.swing.JFrame {
                         .addComponent(jLabel11)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
 
@@ -332,9 +332,13 @@ public class TelaServico extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        int status = 0;
+        
+        mySQLcon.conectaBanco();
         
         servico = new Servico();
         servico.setNome(txtNome.getText());
@@ -345,7 +349,21 @@ public class TelaServico extends javax.swing.JFrame {
         servico.setDescricao(txtDescricao.getText());
         
         try {
-            int status = controller.addServico(servico);
+            status = this.mySQLcon.insertSQL("INSERT INTO Prestador_de_Servico ("
+                    + "nome,"
+                    + "valor_hora,"
+                    + "nome_empresa,"
+                    + "data_inicio,"
+                    + "data_fim,"
+                    + "descricao_servico"
+                + ") VALUES ("
+                    + "'" + servico.getNome()+ "',"
+                    + "'" + servico.getValor()+ "',"
+                    + "'" + servico.getEmpresa()+ "',"
+                    + "'" + servico.getInicio()+ "',"
+                    + "'" + servico.getFim()+ "',"
+                    + "'" + servico.getDescricao()+ "'"
+                + ");");
             
             if (status == 1) {
                 JOptionPane.showMessageDialog(null, "Serviço cadastrado com sucesso.", "Sucesso.", JOptionPane.DEFAULT_OPTION);
@@ -355,7 +373,7 @@ public class TelaServico extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Houve um erro no cadastro do Serviço.", "Erro no cadastro.", JOptionPane.ERROR_MESSAGE);
         } finally {
-            controller.fechaServico();
+            mySQLcon.fechaBanco();
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -363,14 +381,36 @@ public class TelaServico extends javax.swing.JFrame {
         limpaCadastro();
     }//GEN-LAST:event_btnLimparActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        mySQLcon.conectaBanco();
         servico = new Servico();
         
+        String nome =txtNome2.getText();
+        
         try {
-            controller.buscaServico(txtNome2.getText());
+            this.mySQLcon.executarSQL(
+                   "SELECT "
+                    + "valor_hora,"
+                    + "nome_empresa,"
+                    + "data_inicio,"
+                    + "data_fim,"
+                    + "descricao_servico"
+                 + " FROM"
+                     + " Prestador_de_Servico"
+                 + " WHERE"
+                     + " nome LIKE '%" + nome + "%'"
+                + ";"
+            );
             
-            if (servico.getNome().equals("")) {
+            while (mySQLcon.getResultSet().next()){
+            servico.setValor(Float.parseFloat(mySQLcon.getResultSet().getString("valor_hora")));
+            servico.setEmpresa(mySQLcon.getResultSet().getString("nome_empresa"));
+            servico.setInicio(mySQLcon.getResultSet().getString("data_inicio"));
+            servico.setFim(mySQLcon.getResultSet().getString("data_fim"));
+            servico.setDescricao(mySQLcon.getResultSet().getString("descricao_servico"));
+            }
+            
+            if (servico.getEmpresa().equals("")) {
                 JOptionPane.showMessageDialog(null, "Nome não encontrado.", "Erro na busca", JOptionPane.ERROR_MESSAGE);
             }else{
                 txtValor2.setText(String.valueOf(servico.getValor()));
@@ -382,33 +422,67 @@ public class TelaServico extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Houve um erro na busca.", "Erro na busca", JOptionPane.ERROR_MESSAGE);
         } finally {
-            controller.fechaServico();
+            mySQLcon.fechaBanco();
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnConsultarActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnLimpar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpar2ActionPerformed
         limpaConsultar();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnLimpar2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+        boolean status = false;
+        
+        mySQLcon.conectaBanco();
+        
+        String nome =txtNome2.getText();
+        
+        servico = new Servico();
+        servico.setValor(Float.parseFloat(txtValor2.getText()));
+        servico.setEmpresa(txtEmpresa2.getText());
+        servico.setInicio(txtInicio2.getText());
+        servico.setFim(txtFim2.getText());
+        servico.setDescricao(txtDescricao2.getText());
+        
         try {
-            boolean status = controller.updateServico(servico, txtNome2.getText());
+             status = this.mySQLcon.updateSQL(
+                "UPDATE Prestador_de_Servico SET "                    
+                    + "valor_hora = '" + txtValor2.getText() + "',"
+                    + "nome_empresa = '" + txtEmpresa2.getText()+ "',"
+                    + "data_inicio = '" + txtInicio2.getText() + "',"
+                    + "data_fim = '" + txtFim2.getText() + "',"                   
+                    + "descricao_servico = '" + txtDescricao2.getText()+ "'"
+                + " WHERE "
+                    + " nome LIKE '%" + nome + "%'"
+                + ";"
+            );
             
             if (status) {
                 JOptionPane.showMessageDialog(null, "Atualização realizada com sucesso.", "Sucesso.", JOptionPane.DEFAULT_OPTION);
             } else{
-                JOptionPane.showMessageDialog(null, "Houve um erro na atualização.", "Erro na atualizaçã.", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Houve um erro na hora de atualizar.", "Erro na atualizaçã.", JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Houve um erro na atualização.", "Erro na atualização.", JOptionPane.ERROR_MESSAGE);
         } finally {
-            controller.fechaServico();
+            mySQLcon.fechaBanco();
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAtualizarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
+        boolean status = false;
+        
+        mySQLcon.conectaBanco();
+        
+        String nome =txtNome2.getText();
+        
         try {
-            boolean status = controller.deleteServico(txtNome2.getText());
+            status = this.mySQLcon.updateSQL(
+                "DELETE FROM Prestador_de_Servico "
+                + " WHERE "
+                    + " nome LIKE '%" + nome + "%'"
+                + ";"
+            );
             
             if (status) {
                 JOptionPane.showMessageDialog(null, "Serviço apagado com sucesso!", "Sucesso.", JOptionPane.DEFAULT_OPTION);
@@ -418,9 +492,9 @@ public class TelaServico extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Houve um erro ao apagar o registro.", "Erro ao apagar.", JOptionPane.ERROR_MESSAGE);
         } finally {
-            controller.fechaServico();
+            mySQLcon.fechaBanco();
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnDeletarActionPerformed
 
     public void limpaCadastro(){
         txtNome.setText("");
@@ -450,12 +524,12 @@ public class TelaServico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnConsultar;
+    private javax.swing.JButton btnDeletar;
     private javax.swing.JButton btnLimpar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnLimpar2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
