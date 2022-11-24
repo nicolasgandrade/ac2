@@ -37,12 +37,13 @@ public class ViewSplashScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jpbCarregamento.setBackground(new java.awt.Color(0, 51, 102));
+        jpbCarregamento.setBackground(new java.awt.Color(51, 51, 51));
         jpbCarregamento.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jpbCarregamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 410, 560, 20));
+        jpbCarregamento.setBorder(null);
+        getContentPane().add(jpbCarregamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, 560, 20));
 
-        jlFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Marinho ltda .png"))); // NOI18N
-        getContentPane().add(jlFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jlFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/banca do marinho.png"))); // NOI18N
+        getContentPane().add(jlFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1510, -1));
 
         pack();
         setLocationRelativeTo(null);
