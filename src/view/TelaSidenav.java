@@ -32,63 +32,63 @@ public class TelaSidenav extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        spnSideNav = new javax.swing.JSplitPane();
+        jpMenu = new javax.swing.JPanel();
+        lblFundo = new javax.swing.JLabel();
+        jpSide = new javax.swing.JPanel();
+        lblFundo2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1336, 798));
 
-        jSplitPane1.setDividerLocation(-1);
-        jSplitPane1.setPreferredSize(new java.awt.Dimension(1370, 768));
+        spnSideNav.setDividerLocation(-1);
+        spnSideNav.setPreferredSize(new java.awt.Dimension(1370, 768));
 
-        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel2.setPreferredSize(new java.awt.Dimension(330, 768));
+        jpMenu.setBackground(new java.awt.Color(102, 102, 102));
+        jpMenu.setPreferredSize(new java.awt.Dimension(330, 768));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/banca marinho manu.png"))); // NOI18N
+        lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/banca marinho manu.png"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel2)
+        javax.swing.GroupLayout jpMenuLayout = new javax.swing.GroupLayout(jpMenu);
+        jpMenu.setLayout(jpMenuLayout);
+        jpMenuLayout.setHorizontalGroup(
+            jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpMenuLayout.createSequentialGroup()
+                .addComponent(lblFundo)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel2)
+        jpMenuLayout.setVerticalGroup(
+            jpMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpMenuLayout.createSequentialGroup()
+                .addComponent(lblFundo)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setLeftComponent(jPanel2);
+        spnSideNav.setLeftComponent(jpMenu);
 
-        jPanel4.setBackground(new java.awt.Color(0, 204, 204));
-        jPanel4.setMaximumSize(new java.awt.Dimension(1035, 768));
-        jPanel4.setMinimumSize(new java.awt.Dimension(1035, 768));
-        jPanel4.setPreferredSize(new java.awt.Dimension(1035, 768));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jpSide.setBackground(new java.awt.Color(0, 204, 204));
+        jpSide.setMaximumSize(new java.awt.Dimension(1035, 768));
+        jpSide.setMinimumSize(new java.awt.Dimension(1035, 768));
+        jpSide.setPreferredSize(new java.awt.Dimension(1035, 768));
+        jpSide.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/banca marinho side.png"))); // NOI18N
-        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 790));
+        lblFundo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/banca marinho side.png"))); // NOI18N
+        jpSide.add(lblFundo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 790));
 
-        jSplitPane1.setRightComponent(jPanel4);
+        spnSideNav.setRightComponent(jpSide);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(spnSideNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(spnSideNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -131,10 +131,10 @@ public class TelaSidenav extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JPanel jpMenu;
+    private javax.swing.JPanel jpSide;
+    private javax.swing.JLabel lblFundo;
+    private javax.swing.JLabel lblFundo2;
+    private javax.swing.JSplitPane spnSideNav;
     // End of variables declaration//GEN-END:variables
 }
