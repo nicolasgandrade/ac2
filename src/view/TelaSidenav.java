@@ -25,6 +25,9 @@ public class TelaSidenav extends javax.swing.JFrame {
         spnSideNav = new javax.swing.JSplitPane();
         jpMenu = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         lblFundo = new javax.swing.JLabel();
         jpSide = new javax.swing.JPanel();
         lblFundo2 = new javax.swing.JLabel();
@@ -42,6 +45,15 @@ public class TelaSidenav extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("BANCA DO MARINHO");
         jpMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 90));
+
+        jButton1.setText("SEM FUNÇÂO");
+        jpMenu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 310, 60));
+
+        jButton2.setText("USUARIO");
+        jpMenu.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 310, 60));
+
+        jButton3.setText("PRODUTO");
+        jpMenu.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 310, 60));
 
         lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/banca marinho manu.png"))); // NOI18N
         jpMenu.add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -111,6 +123,9 @@ public class TelaSidenav extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jpMenu;
     private javax.swing.JPanel jpSide;
