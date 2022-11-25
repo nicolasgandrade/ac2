@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.CardLayout;
 import java.awt.HeadlessException;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -7,7 +8,7 @@ import javax.swing.JSplitPane;
 
 
 public class TelaSidenav extends javax.swing.JFrame {
-
+    CardLayout cardLayout;
     public TelaSidenav(JLabel jLabel1, JPanel jPanel2, JPanel jPanel4, JSplitPane jSplitPane1) throws HeadlessException {
         
     }
@@ -15,6 +16,7 @@ public class TelaSidenav extends javax.swing.JFrame {
     public TelaSidenav() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
+        cardLayout = (CardLayout)(jpSide.getLayout());
     }
 
 
@@ -31,6 +33,7 @@ public class TelaSidenav extends javax.swing.JFrame {
         lblFundo = new javax.swing.JLabel();
         jpSide = new javax.swing.JPanel();
         lblFundo2 = new javax.swing.JLabel();
+        jpUser = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,6 +53,11 @@ public class TelaSidenav extends javax.swing.JFrame {
         jpMenu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 310, 60));
 
         jButton2.setText("USUARIO");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jpMenu.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 310, 60));
 
         jButton3.setText("PRODUTO");
@@ -64,10 +72,26 @@ public class TelaSidenav extends javax.swing.JFrame {
         jpSide.setMaximumSize(new java.awt.Dimension(1035, 768));
         jpSide.setMinimumSize(new java.awt.Dimension(1035, 768));
         jpSide.setPreferredSize(new java.awt.Dimension(1035, 768));
-        jpSide.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jpSide.setLayout(new java.awt.CardLayout());
 
         lblFundo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/banca marinho side.png"))); // NOI18N
-        jpSide.add(lblFundo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 790));
+        jpSide.add(lblFundo2, "card2");
+
+        jpUser.setBackground(new java.awt.Color(0, 0, 153));
+        jpUser.setForeground(new java.awt.Color(0, 51, 255));
+
+        javax.swing.GroupLayout jpUserLayout = new javax.swing.GroupLayout(jpUser);
+        jpUser.setLayout(jpUserLayout);
+        jpUserLayout.setHorizontalGroup(
+            jpUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1035, Short.MAX_VALUE)
+        );
+        jpUserLayout.setVerticalGroup(
+            jpUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 768, Short.MAX_VALUE)
+        );
+
+        jpSide.add(jpUser, "card3");
 
         spnSideNav.setRightComponent(jpSide);
 
@@ -88,6 +112,10 @@ public class TelaSidenav extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        cardLayout.show(jpSide, "jpUser");
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     public static void main(String args[]) {
@@ -129,6 +157,7 @@ public class TelaSidenav extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jpMenu;
     private javax.swing.JPanel jpSide;
+    private javax.swing.JPanel jpUser;
     private javax.swing.JLabel lblFundo;
     private javax.swing.JLabel lblFundo2;
     private javax.swing.JSplitPane spnSideNav;
