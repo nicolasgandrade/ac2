@@ -41,7 +41,6 @@ public class TelaSidenav extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1336, 798));
 
-        spnSideNav.setDividerLocation(-1);
         spnSideNav.setPreferredSize(new java.awt.Dimension(1370, 768));
 
         jpMenu.setBackground(new java.awt.Color(102, 102, 102));
