@@ -16,7 +16,7 @@ import model.User;
  */
 public class Login extends javax.swing.JFrame {
     RegisterModal regModal;
-    TelaServico tlServico;
+    TelaSidenav tlSidenav;
     UserController controller;
     
     /**
@@ -26,7 +26,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         regModal = new RegisterModal();
-        tlServico = new TelaServico();
+        tlSidenav = new TelaSidenav();
         controller = new UserController();
     }
 
@@ -165,7 +165,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Usuário e/ou senha errado(s)");
             } else {
                 dispose();
-                tlServico.setVisible(true);
+                tlSidenav.setVisible(true);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
