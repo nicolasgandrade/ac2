@@ -38,12 +38,16 @@ public class TelaSidenav extends javax.swing.JFrame {
         jpSide = new javax.swing.JPanel();
         jpPrincipal = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jpUser = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jpProduto = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jpServico = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -100,10 +104,17 @@ public class TelaSidenav extends javax.swing.JFrame {
         jpPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("BEM - VINDO");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jpPrincipal.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1030, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("A BANCA DO MARINHO");
+        jpPrincipal.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 190, 290, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/banca marinho side.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -115,6 +126,13 @@ public class TelaSidenav extends javax.swing.JFrame {
         jpUser.setMaximumSize(new java.awt.Dimension(1035, 768));
         jpUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("CADASTRO USUÁRIO");
+        jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jpUser.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1030, -1));
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/banca marinho side.png"))); // NOI18N
         jLabel3.setText("jLabel2");
         jpUser.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -125,6 +143,13 @@ public class TelaSidenav extends javax.swing.JFrame {
         jpProduto.setMaximumSize(new java.awt.Dimension(1035, 768));
         jpProduto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("CADASTRO PRODUTO");
+        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jpProduto.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1030, -1));
+
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/banca marinho side.png"))); // NOI18N
         jLabel4.setText("jLabel2");
         jpProduto.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -134,6 +159,13 @@ public class TelaSidenav extends javax.swing.JFrame {
         jpServico.setBackground(new java.awt.Color(0, 204, 204));
         jpServico.setMaximumSize(new java.awt.Dimension(1035, 768));
         jpServico.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("SERVIÇOS");
+        jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jpServico.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1030, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/banca marinho side.png"))); // NOI18N
         jLabel5.setText("jLabel2");
@@ -214,11 +246,15 @@ public class TelaSidenav extends javax.swing.JFrame {
     private javax.swing.JButton btnServiço;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jpMenu;
     private javax.swing.JPanel jpPrincipal;
     private javax.swing.JPanel jpProduto;
