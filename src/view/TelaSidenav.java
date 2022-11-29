@@ -37,6 +37,7 @@ public class TelaSidenav extends javax.swing.JFrame {
         lblFundo = new javax.swing.JLabel();
         jpSide = new javax.swing.JPanel();
         jpPrincipal = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jpUser = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -97,6 +98,12 @@ public class TelaSidenav extends javax.swing.JFrame {
         jpPrincipal.setBackground(new java.awt.Color(0, 204, 204));
         jpPrincipal.setMaximumSize(new java.awt.Dimension(1035, 768));
         jpPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("BEM - VINDO");
+        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jpPrincipal.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1030, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/banca marinho side.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -211,6 +218,7 @@ public class TelaSidenav extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jpMenu;
     private javax.swing.JPanel jpPrincipal;
     private javax.swing.JPanel jpProduto;
