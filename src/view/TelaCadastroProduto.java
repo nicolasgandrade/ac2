@@ -1,11 +1,16 @@
-
 package view;
 
-public class TelaCadastroProduto extends javax.swing.JFrame {
+import javax.swing.JOptionPane;
+import utils.MySQL;
+import model.Produto;
 
+public class TelaCadastroProduto extends javax.swing.JFrame {
+    MySQL conn;
+    Produto produto;
 
     public TelaCadastroProduto() {
         initComponents();
+        conn = new MySQL();
     }
 
 
@@ -19,7 +24,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         lblNome = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         lblEmpresa = new javax.swing.JLabel();
-        txtEmpresa = new javax.swing.JTextField();
+        txtEditora = new javax.swing.JTextField();
         rbtnRevista = new javax.swing.JRadioButton();
         rbtnJornal = new javax.swing.JRadioButton();
         lblTipo = new javax.swing.JLabel();
@@ -48,7 +53,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         lblCategoria3 = new javax.swing.JLabel();
         rbtnRevista1 = new javax.swing.JRadioButton();
         rbtnJornal1 = new javax.swing.JRadioButton();
-        txtEmpresa1 = new javax.swing.JTextField();
+        txtEditoraBusca = new javax.swing.JTextField();
         cboCategoria1 = new javax.swing.JComboBox<>();
         cboClassificação1 = new javax.swing.JComboBox<>();
         txtIdioma1 = new javax.swing.JTextField();
@@ -85,6 +90,11 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         lblCategoria1.setText("Valor:");
 
         btnCadastrar.setText("CADASTRAR");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
         lblIdioma.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblIdioma.setText("Idioma:");
@@ -95,11 +105,6 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         cboClassificação.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "L", "+10", "+12", "+14", "+16", "+18" }));
 
         btnLimpar1.setText("LIMPAR");
-        btnLimpar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpar1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jpCadastroLayout = new javax.swing.GroupLayout(jpCadastro);
         jpCadastro.setLayout(jpCadastroLayout);
@@ -131,7 +136,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                                             .addComponent(rbtnRevista)
                                             .addGap(18, 18, 18)
                                             .addComponent(rbtnJornal))
-                                        .addComponent(txtEmpresa)
+                                        .addComponent(txtEditora)
                                         .addComponent(txtValor)
                                         .addComponent(txtIdioma)
                                         .addComponent(cboCategoria, 0, 200, Short.MAX_VALUE)))
@@ -151,7 +156,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jpCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmpresa)
-                    .addComponent(txtEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEditora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jpCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTipo)
@@ -189,28 +194,13 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         btnBuscar.setText("BUSCAR");
 
         btnDeletar.setText("DELETAR");
-        btnDeletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeletarActionPerformed(evt);
-            }
-        });
 
         lblEmpresa1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblEmpresa1.setText("Editora:");
 
         btnAtualiza.setText("ATUALIZAR");
-        btnAtualiza.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtualizaActionPerformed(evt);
-            }
-        });
 
         btnLimpar.setText("LIMPAR");
-        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimparActionPerformed(evt);
-            }
-        });
 
         lblTipo1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblTipo1.setText("Tipo:");
@@ -269,7 +259,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGap(0, 0, Short.MAX_VALUE)
-                                            .addComponent(txtEmpresa1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtEditoraBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                             .addComponent(rbtnRevista1)
                                             .addGap(18, 18, 18)
@@ -305,13 +295,13 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmpresa1)
-                    .addComponent(txtEmpresa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEditoraBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTipo1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(rbtnRevista1)
-                        .addComponent(rbtnJornal1)))
+                        .addComponent(rbtnJornal1))
+                    .addComponent(lblTipo1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCategoria2)
@@ -354,45 +344,57 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAtualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAtualizaActionPerformed
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
 
-    private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDeletarActionPerformed
-
-    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimparActionPerformed
-
-    private void btnLimpar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpar1ActionPerformed
+        int status = 0;
+        
+        conn.conectaBanco();
+        
+        produto = new Produto();
+        produto.setNome_produto(txtNome.getText());
+        produto.setEditora(txtEditora.getText());
+        if (rbtnJornal.isSelected()) {
+            produto.setTipo("Jornal");
+        } else if (rbtnRevista.isSelected()) {
+            produto.setTipo("Revista");
+        }
+        produto.setCategoria((String)cboCategoria.getSelectedItem());
+        produto.setClassificacao((String)cboClassificação.getSelectedItem());
+        produto.setIdioma(txtIdioma.getText());
+        produto.setValor(Integer.parseInt(txtValor.getText()));
+        
+        try {
+            status = this.conn.insertSQL("INSERT INTO Produto ("
+                    + "nome_produto,"
+                    + "editora,"
+                    + "tipo,"
+                    + "categoria,"
+                    + "classificacao,"
+                    + "idioma,"
+                    + "valor"
+                + ") VALUES ("
+                    + "'" + produto.getNome_produto()+ "',"
+                    + "'" + produto.getEditora()+ "',"
+                    + "'" + produto.getTipo()+ "',"
+                    + "'" + produto.getCategoria()+ "',"
+                    + "'" + produto.getClassificacao()+ "',"
+                    + "'" + produto.getIdioma()+ "',"
+                    + produto.getValor()
+                + ");");
+            
+            if (status == 1){
+                 JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso.", "Sucesso.", JOptionPane.DEFAULT_OPTION);
+            } else {
+                JOptionPane.showMessageDialog(null, "Houve algum problema no cadastro do Produto.", "Erro no cadastro." , JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Houve um erro no cadastro do Produto.", "Erro no cadastro.", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            conn.fechaBanco();
+        }
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastroProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -434,8 +436,8 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtnJornal1;
     private javax.swing.JRadioButton rbtnRevista;
     private javax.swing.JRadioButton rbtnRevista1;
-    private javax.swing.JTextField txtEmpresa;
-    private javax.swing.JTextField txtEmpresa1;
+    private javax.swing.JTextField txtEditora;
+    private javax.swing.JTextField txtEditoraBusca;
     private javax.swing.JTextField txtIdioma;
     private javax.swing.JTextField txtIdioma1;
     private javax.swing.JTextField txtNome;

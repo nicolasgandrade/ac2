@@ -89,7 +89,7 @@
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="rbtnJornal" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="txtEmpresa" max="32767" attributes="0"/>
+                                          <Component id="txtEditora" max="32767" attributes="0"/>
                                           <Component id="txtValor" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txtIdioma" alignment="0" max="32767" attributes="0"/>
                                           <Component id="cboCategoria" alignment="0" pref="200" max="32767" attributes="0"/>
@@ -118,7 +118,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtEditora" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -177,7 +177,7 @@
             <Property name="text" type="java.lang.String" value="Editora:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtEmpresa">
+        <Component class="javax.swing.JTextField" name="txtEditora">
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbtnRevista">
           <Properties>
@@ -253,6 +253,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="CADASTRAR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblIdioma">
           <Properties>
@@ -294,9 +297,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="LIMPAR"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpar1ActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -342,7 +342,7 @@
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              <Component id="txtEmpresa1" min="-2" pref="200" max="-2" attributes="0"/>
+                                              <Component id="txtEditoraBusca" min="-2" pref="200" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="rbtnRevista1" min="-2" max="-2" attributes="0"/>
@@ -394,15 +394,15 @@
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblEmpresa1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtEmpresa1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtEditoraBusca" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblTipo1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="rbtnRevista1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="rbtnJornal1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="lblTipo1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -454,9 +454,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="DELETAR"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeletarActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblEmpresa1">
           <Properties>
@@ -470,17 +467,11 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="ATUALIZAR"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAtualizaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnLimpar">
           <Properties>
             <Property name="text" type="java.lang.String" value="LIMPAR"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTipo1">
           <Properties>
@@ -544,7 +535,7 @@
             <Property name="text" type="java.lang.String" value="Jornal"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtEmpresa1">
+        <Component class="javax.swing.JTextField" name="txtEditoraBusca">
         </Component>
         <Component class="javax.swing.JComboBox" name="cboCategoria1">
           <Properties>
