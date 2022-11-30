@@ -204,6 +204,11 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         });
 
         btnDeletar.setText("DELETAR");
+        btnDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletarActionPerformed(evt);
+            }
+        });
 
         lblEmpresa1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblEmpresa1.setText("Editora:");
@@ -566,6 +571,31 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             conn.fechaBanco();
         }
     }//GEN-LAST:event_btnAtualizaActionPerformed
+
+    private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
+        boolean status = false;
+        
+        conn.conectaBanco();
+        
+        String nomeProduto = txtNome1.getText();
+        
+        try {
+            status = this.conn.updateSQL("DELETE FROM Produto "
+                + " WHERE "
+                    + "nome_produto = '" + nomeProduto + "'"
+                + ";");
+            
+            if (status) {
+                JOptionPane.showMessageDialog(null, "Produto apagado com sucesso!", "Sucesso.", JOptionPane.DEFAULT_OPTION);
+            } else{
+                JOptionPane.showMessageDialog(null, "Houve um erro ao apagar.", "Erro ao apagar.", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Houve um erro ao apagar o produto.", "Erro ao apagar.", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            conn.fechaBanco();
+        }
+    }//GEN-LAST:event_btnDeletarActionPerformed
 
     public static void main(String args[]) {
 
