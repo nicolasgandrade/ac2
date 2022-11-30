@@ -209,6 +209,11 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         lblEmpresa1.setText("Editora:");
 
         btnAtualiza.setText("ATUALIZAR");
+        btnAtualiza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizaActionPerformed(evt);
+            }
+        });
 
         btnLimparBusca.setText("LIMPAR");
         btnLimparBusca.addActionListener(new java.awt.event.ActionListener() {
@@ -518,6 +523,49 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             conn.fechaBanco();
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnAtualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizaActionPerformed
+        boolean status = false;
+        
+        conn.conectaBanco();
+        
+        String nomeProduto = txtNome1.getText();
+        
+        produto = new Produto();
+        produto.setEditora(txtEditoraBusca.getText());
+        if (rbtnJornal1.isSelected()) {
+            produto.setTipo("Jornal");
+        } else if (rbtnRevista1.isSelected()) {
+            produto.setTipo("Revista");
+        }
+        produto.setCategoria((String)cboCategoria1.getSelectedItem());
+        produto.setClassificacao((String)cboClassificação1.getSelectedItem());
+        produto.setIdioma(txtIdioma1.getText());
+        produto.setValor(Integer.parseInt(txtValor1.getText()));
+        
+        try {
+            status = this.conn.updateSQL("UPDATE Produto SET "
+                    + "editora = '" + produto.getEditora() + "',"
+                    + "tipo = '" + produto.getTipo()+ "',"
+                    + "categoria = '" + produto.getCategoria() + "',"
+                    + "classificacao = '" + produto.getClassificacao() + "',"
+                    + "idioma = '" + produto.getIdioma() + "',"
+                    + "valor = " + produto.getValor()
+                + " WHERE "
+                    + " nome_produto LIKE '%" + nomeProduto + "%'"
+                + ";");
+            
+            if (status) {
+                JOptionPane.showMessageDialog(null, "Atualização realizada com sucesso.", "Sucesso.", JOptionPane.DEFAULT_OPTION);
+            } else{
+                JOptionPane.showMessageDialog(null, "Houve um erro na atualização.", "Erro na atualizaçã.", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Houve um erro na atualização.", "Erro na atualização.", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            conn.fechaBanco();
+        }
+    }//GEN-LAST:event_btnAtualizaActionPerformed
 
     public static void main(String args[]) {
 
