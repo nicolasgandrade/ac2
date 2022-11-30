@@ -386,7 +386,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         produto.setCategoria((String)cboCategoria.getSelectedItem());
         produto.setClassificacao((String)cboClassificação.getSelectedItem());
         produto.setIdioma(txtIdioma.getText());
-        produto.setValor(Integer.parseInt(txtValor.getText()));
+        produto.setValor(Float.parseFloat(txtValor.getText()));
         
         try {
             status = this.conn.insertSQL("INSERT INTO Produto ("
@@ -546,7 +546,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         produto.setCategoria((String)cboCategoria1.getSelectedItem());
         produto.setClassificacao((String)cboClassificação1.getSelectedItem());
         produto.setIdioma(txtIdioma1.getText());
-        produto.setValor(Integer.parseInt(txtValor1.getText()));
+        produto.setValor(Float.parseFloat(txtValor1.getText()));
         
         try {
             status = this.conn.updateSQL("UPDATE Produto SET "
