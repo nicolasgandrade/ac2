@@ -197,6 +197,11 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         lblNome1.setText("Nome Produto:");
 
         btnBuscar.setText("BUSCAR");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         btnDeletar.setText("DELETAR");
 
@@ -425,6 +430,94 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         txtIdioma1.setText("");
         txtValor1.setText("");
     }//GEN-LAST:event_btnLimparBuscaActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        conn.conectaBanco();
+        
+        produto = new Produto();
+        String nomeProduto = txtNome1.getText();
+        
+        try {
+            this.conn.executarSQL("SELECT "
+                    + "editora,"
+                    + "tipo,"
+                    + "categoria,"
+                    + "classificacao,"
+                    + "idioma,"
+                    + "valor"
+                 + " FROM"
+                     + " Produto"
+                 + " WHERE"
+                     + " nome_produto LIKE '%" + nomeProduto + "%'"
+                + ";"
+            );
+            
+            while (conn.getResultSet().next()) {
+                produto.setEditora(conn.getResultSet().getString("editora"));
+                produto.setTipo(conn.getResultSet().getString("tipo"));
+                produto.setCategoria(conn.getResultSet().getString("categoria"));
+                produto.setClassificacao(conn.getResultSet().getString("classificacao"));
+                produto.setIdioma(conn.getResultSet().getString("idioma"));
+                produto.setValor(Float.parseFloat(conn.getResultSet().getString("valor")));
+            }
+            
+            if (produto.getEditora().equals("")) {
+                JOptionPane.showMessageDialog(null, "Produto não encontrado.", "Erro na busca", JOptionPane.ERROR_MESSAGE);
+            } else {
+                txtEditoraBusca.setText(produto.getEditora());
+                if (produto.getTipo().equals("Revista")) {
+                    rbtnRevista1.setSelected(true);
+                    rbtnJornal1.setSelected(false);
+                } else if (produto.getTipo().equals("Jornal")) {
+                    rbtnJornal1.setSelected(true);
+                    rbtnRevista1.setSelected(false);
+                }
+                
+                if (produto.getCategoria().equals("Arte & Moda")) {
+                    cboCategoria1.setSelectedIndex(1);
+                } else if (produto.getCategoria().equals("Atualidade & Política")) {
+                    cboCategoria1.setSelectedIndex(2);
+                } else if (produto.getCategoria().equals("Ciência & Tecnologia")) {
+                    cboCategoria1.setSelectedIndex(3);
+                } else if (produto.getCategoria().equals("Educação")) {
+                    cboCategoria1.setSelectedIndex(4);
+                } else if (produto.getCategoria().equals("Esporte & Lazer")) {
+                    cboCategoria1.setSelectedIndex(5);
+                } else if (produto.getCategoria().equals("Infantil")) {
+                    cboCategoria1.setSelectedIndex(6);
+                } else if (produto.getCategoria().equals("Negócios & Carreras")) {
+                    cboCategoria1.setSelectedIndex(7);
+                } else if (produto.getCategoria().equals("Pets")) {
+                    cboCategoria1.setSelectedIndex(8);
+                } else if (produto.getCategoria().equals("Saúde")) {
+                    cboCategoria1.setSelectedIndex(9);
+                } else if (produto.getCategoria().equals("Viagem & Turismo")) {
+                    cboCategoria1.setSelectedIndex(10);
+                }
+                
+                if (produto.getClassificacao().equals("L")) {
+                    cboClassificação1.setSelectedIndex(1);
+                } else if (produto.getClassificacao().equals("+10")) {
+                    cboClassificação1.setSelectedIndex(2);
+                } else if (produto.getClassificacao().equals("+12")) {
+                    cboClassificação1.setSelectedIndex(3);
+                } else if (produto.getClassificacao().equals("+14")) {
+                    cboClassificação1.setSelectedIndex(4);
+                } else if (produto.getClassificacao().equals("+16")) {
+                    cboClassificação1.setSelectedIndex(5);
+                } else if (produto.getClassificacao().equals("+18")) {
+                    cboClassificação1.setSelectedIndex(6);
+                }
+                
+                txtIdioma1.setText(produto.getIdioma());
+                txtValor1.setText(String.valueOf(produto.getValor()));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Houve um erro na busca.", "Erro na busca", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            conn.fechaBanco();
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     public static void main(String args[]) {
 
