@@ -12,7 +12,6 @@ public class TelaSidenav extends javax.swing.JFrame {
     RegisterModal registro = new RegisterModal();
     TelaCadastroProduto produto = new TelaCadastroProduto();
     TelaServico servico = new TelaServico();
-    TelaSidenav sidenav = new TelaSidenav();
     
     public TelaSidenav(JLabel jLabel1, JPanel jPanel2, JPanel jPanel4, JSplitPane jSplitPane1) throws HeadlessException {
         
