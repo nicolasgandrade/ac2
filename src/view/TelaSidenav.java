@@ -34,6 +34,7 @@ public class TelaSidenav extends javax.swing.JFrame {
         btnServiço = new javax.swing.JButton();
         btnUsuario = new javax.swing.JButton();
         btnProduto = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
         lblFundo = new javax.swing.JLabel();
         jpSide = new javax.swing.JPanel();
         jpPrincipal = new javax.swing.JPanel();
@@ -87,6 +88,14 @@ public class TelaSidenav extends javax.swing.JFrame {
             }
         });
         jpMenu.add(btnProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 310, 60));
+
+        btnSair.setText("SAIR");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+        jpMenu.add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 310, 60));
 
         lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/banca marinho manu.png"))); // NOI18N
         jpMenu.add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -208,6 +217,10 @@ public class TelaSidenav extends javax.swing.JFrame {
         servico.setVisible(true);
     }//GEN-LAST:event_btnServiçoActionPerformed
 
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSairActionPerformed
+
 
     public static void main(String args[]) {
         
@@ -243,6 +256,7 @@ public class TelaSidenav extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnProduto;
+    private javax.swing.JButton btnSair;
     private javax.swing.JButton btnServiço;
     private javax.swing.JButton btnUsuario;
     private javax.swing.JPanel jpMenu;
