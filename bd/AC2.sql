@@ -20,14 +20,6 @@ create table Usuario (
   descricao_servico varchar(500)
   );
   
-  
-  #Af
-  create table Usuario (
-  id int primary key auto_increment,
-  login_usuario varchar(40) unique not null,
-  senha_usuario varchar(30) not null,
-  nome_usuario varchar(100) not null
-  );
   #Af
   create table Produto (
   id int primary key auto_increment,
@@ -35,8 +27,8 @@ create table Usuario (
   editora varchar(50),
   tipo varchar(40),
   categoria varchar(40),
+  classificacao varchar(40),
+  idioma varchar(40),
   valor float
   );
-  
-  
   
