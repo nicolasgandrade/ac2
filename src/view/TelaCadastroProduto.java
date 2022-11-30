@@ -415,6 +415,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             
             if (status == 1){
                  JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso.", "Sucesso.", JOptionPane.DEFAULT_OPTION);
+                 this.limparCadastro();
             } else {
                 JOptionPane.showMessageDialog(null, "Houve algum problema no cadastro do Produto.", "Erro no cadastro." , JOptionPane.ERROR_MESSAGE);
             }
@@ -447,6 +448,27 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         txtValor1.setText("");
     }//GEN-LAST:event_btnLimparBuscaActionPerformed
 
+    private void limparBusca() {
+        txtNome1.setText("");
+        txtEditoraBusca.setText("");
+        rbtnJornal1.setSelected(false);
+        rbtnRevista1.setSelected(false);
+        cboCategoria1.setSelectedIndex(0);
+        cboClassificação1.setSelectedIndex(0);
+        txtIdioma1.setText("");
+        txtValor1.setText("");
+    }
+    
+    private void limparCadastro() {
+        txtNome.setText("");
+        txtEditora.setText("");
+        rbtnJornal.setSelected(false);
+        rbtnRevista.setSelected(false);
+        cboCategoria.setSelectedIndex(0);
+        cboClassificação.setSelectedIndex(0);
+        txtIdioma.setText("");
+        txtValor.setText("");
+    }
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         conn.conectaBanco();
         
@@ -572,6 +594,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             
             if (status) {
                 JOptionPane.showMessageDialog(null, "Atualização realizada com sucesso.", "Sucesso.", JOptionPane.DEFAULT_OPTION);
+                this.limparBusca();
             } else{
                 JOptionPane.showMessageDialog(null, "Houve um erro na atualização.", "Erro na atualizaçã.", JOptionPane.ERROR_MESSAGE);
             }
@@ -596,7 +619,8 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                 + ";");
             
             if (status) {
-                JOptionPane.showMessageDialog(null, "Produto apagado com sucesso!", "Sucesso.", JOptionPane.DEFAULT_OPTION);
+               JOptionPane.showMessageDialog(null, "Produto apagado com sucesso!", "Sucesso.", JOptionPane.DEFAULT_OPTION);
+               this.limparBusca();
             } else{
                 JOptionPane.showMessageDialog(null, "Houve um erro ao apagar.", "Erro ao apagar.", JOptionPane.ERROR_MESSAGE);
             }
