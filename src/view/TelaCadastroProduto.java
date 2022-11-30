@@ -196,6 +196,12 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         lblNome1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblNome1.setText("Nome Produto:");
 
+        txtNome1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNome1ActionPerformed(evt);
+            }
+        });
+
         btnBuscar.setText("BUSCAR");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -361,7 +367,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jpCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+            .addComponent(jpCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -449,6 +455,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         
         try {
             this.conn.executarSQL("SELECT "
+                    + "nome_produto,"
                     + "editora,"
                     + "tipo,"
                     + "categoria,"
@@ -463,6 +470,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             );
             
             while (conn.getResultSet().next()) {
+                produto.setNome_produto(conn.getResultSet().getString("nome_produto"));
                 produto.setEditora(conn.getResultSet().getString("editora"));
                 produto.setTipo(conn.getResultSet().getString("tipo"));
                 produto.setCategoria(conn.getResultSet().getString("categoria"));
@@ -519,6 +527,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                     cboClassificação1.setSelectedIndex(6);
                 }
                 
+                txtNome1.setText(produto.getNome_produto());
                 txtIdioma1.setText(produto.getIdioma());
                 txtValor1.setText(String.valueOf(produto.getValor()));
             }
@@ -537,6 +546,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         String nomeProduto = txtNome1.getText();
         
         produto = new Produto();
+        produto.setNome_produto(txtNome1.getText());
         produto.setEditora(txtEditoraBusca.getText());
         if (rbtnJornal1.isSelected()) {
             produto.setTipo("Jornal");
@@ -596,6 +606,10 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
             conn.fechaBanco();
         }
     }//GEN-LAST:event_btnDeletarActionPerformed
+
+    private void txtNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNome1ActionPerformed
 
     public static void main(String args[]) {
 
