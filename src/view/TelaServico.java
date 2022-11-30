@@ -367,6 +367,7 @@ public class TelaServico extends javax.swing.JFrame {
             
             if (status == 1) {
                 JOptionPane.showMessageDialog(null, "Serviço cadastrado com sucesso.", "Sucesso.", JOptionPane.DEFAULT_OPTION);
+                this.limpaCadastro();
             } else {
                 JOptionPane.showMessageDialog(null, "Houve algum problema no cadastro do Serviço.", "Erro no cadastro." , JOptionPane.ERROR_MESSAGE);
             }
@@ -459,6 +460,7 @@ public class TelaServico extends javax.swing.JFrame {
             
             if (status) {
                 JOptionPane.showMessageDialog(null, "Atualização realizada com sucesso.", "Sucesso.", JOptionPane.DEFAULT_OPTION);
+                this.limpaConsultar();
             } else{
                 JOptionPane.showMessageDialog(null, "Houve um erro na hora de atualizar.", "Erro na atualizaçã.", JOptionPane.ERROR_MESSAGE);
             }
@@ -486,6 +488,7 @@ public class TelaServico extends javax.swing.JFrame {
             
             if (status) {
                 JOptionPane.showMessageDialog(null, "Serviço apagado com sucesso!", "Sucesso.", JOptionPane.DEFAULT_OPTION);
+                this.limpaConsultar();
             } else{
                 JOptionPane.showMessageDialog(null, "Houve um erro ao apagar.", "Erro ao apagar.", JOptionPane.ERROR_MESSAGE);
             }
