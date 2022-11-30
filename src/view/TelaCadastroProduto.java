@@ -37,7 +37,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         txtIdioma = new javax.swing.JTextField();
         lblIdioma1 = new javax.swing.JLabel();
         cboClassificação = new javax.swing.JComboBox<>();
-        btnLimpar1 = new javax.swing.JButton();
+        btnLimparCadastro = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblNome1 = new javax.swing.JLabel();
         txtNome1 = new javax.swing.JTextField();
@@ -45,7 +45,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         btnDeletar = new javax.swing.JButton();
         lblEmpresa1 = new javax.swing.JLabel();
         btnAtualiza = new javax.swing.JButton();
-        btnLimpar = new javax.swing.JButton();
+        btnLimparBusca = new javax.swing.JButton();
         lblTipo1 = new javax.swing.JLabel();
         lblCategoria2 = new javax.swing.JLabel();
         lblIdioma2 = new javax.swing.JLabel();
@@ -104,7 +104,12 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
 
         cboClassificação.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "L", "+10", "+12", "+14", "+16", "+18" }));
 
-        btnLimpar1.setText("LIMPAR");
+        btnLimparCadastro.setText("LIMPAR");
+        btnLimparCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparCadastroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpCadastroLayout = new javax.swing.GroupLayout(jpCadastro);
         jpCadastro.setLayout(jpCadastroLayout);
@@ -114,7 +119,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jpCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpCadastroLayout.createSequentialGroup()
-                        .addComponent(btnLimpar1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnLimparCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12))
@@ -182,7 +187,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jpCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLimpar1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLimparCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -200,7 +205,12 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
 
         btnAtualiza.setText("ATUALIZAR");
 
-        btnLimpar.setText("LIMPAR");
+        btnLimparBusca.setText("LIMPAR");
+        btnLimparBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparBuscaActionPerformed(evt);
+            }
+        });
 
         lblTipo1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblTipo1.setText("Tipo:");
@@ -274,7 +284,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                                             .addComponent(cboClassificação1, javax.swing.GroupLayout.Alignment.LEADING, 0, 200, Short.MAX_VALUE)
                                             .addComponent(txtValor1))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnLimparBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(0, 0, Short.MAX_VALUE)))))
@@ -291,7 +301,7 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLimparBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmpresa1)
@@ -394,6 +404,28 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
+    private void btnLimparCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparCadastroActionPerformed
+        txtNome.setText("");
+        txtEditora.setText("");
+        rbtnJornal.setSelected(false);
+        rbtnRevista.setSelected(false);
+        cboCategoria.setSelectedIndex(0);
+        cboClassificação.setSelectedIndex(0);
+        txtIdioma.setText("");
+        txtValor.setText("");
+    }//GEN-LAST:event_btnLimparCadastroActionPerformed
+
+    private void btnLimparBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparBuscaActionPerformed
+        txtNome1.setText("");
+        txtEditoraBusca.setText("");
+        rbtnJornal1.setSelected(false);
+        rbtnRevista1.setSelected(false);
+        cboCategoria1.setSelectedIndex(0);
+        cboClassificação1.setSelectedIndex(0);
+        txtIdioma1.setText("");
+        txtValor1.setText("");
+    }//GEN-LAST:event_btnLimparBuscaActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -408,8 +440,8 @@ public class TelaCadastroProduto extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnDeletar;
-    private javax.swing.JButton btnLimpar;
-    private javax.swing.JButton btnLimpar1;
+    private javax.swing.JButton btnLimparBusca;
+    private javax.swing.JButton btnLimparCadastro;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cboCategoria;

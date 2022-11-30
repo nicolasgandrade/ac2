@@ -63,7 +63,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="btnLimpar1" min="-2" pref="120" max="-2" attributes="0"/>
+                          <Component id="btnLimparCadastro" min="-2" pref="120" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="btnCadastrar" min="-2" pref="120" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -151,7 +151,7 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnCadastrar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="btnLimpar1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="btnLimparCadastro" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -293,10 +293,13 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="btnLimpar1">
+        <Component class="javax.swing.JButton" name="btnLimparCadastro">
           <Properties>
             <Property name="text" type="java.lang.String" value="LIMPAR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparCadastroActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -362,7 +365,7 @@
                                               <Component id="txtValor1" alignment="1" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="btnLimpar" min="-2" pref="120" max="-2" attributes="0"/>
+                                              <Component id="btnLimparBusca" min="-2" pref="120" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="btnBuscar" min="-2" pref="120" max="-2" attributes="0"/>
                                           </Group>
@@ -389,7 +392,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnBuscar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="btnLimpar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="btnLimparBusca" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -468,10 +471,13 @@
             <Property name="text" type="java.lang.String" value="ATUALIZAR"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnLimpar">
+        <Component class="javax.swing.JButton" name="btnLimparBusca">
           <Properties>
             <Property name="text" type="java.lang.String" value="LIMPAR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparBuscaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTipo1">
           <Properties>
